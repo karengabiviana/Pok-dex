@@ -11,6 +11,7 @@ class ViewController: UIViewController {
     let textfield: UITextField = {
         let field = UITextField()
         field.placeholder = "Que Pokémon você quer pesquisar?"
+        field.borderStyle = .roundedRect
         return field
     }()
 
@@ -27,9 +28,11 @@ class ViewController: UIViewController {
     
     func constrainstLayout() {
         textfield.translatesAutoresizingMaskIntoConstraints = false
-        textfield.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        textfield.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        
+        NSLayoutConstraint.activate([
+            textfield.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 40),
+            textfield.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 40),
+            textfield.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -40)
+        ])
     }
 
 }
