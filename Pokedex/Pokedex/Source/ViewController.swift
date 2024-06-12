@@ -43,6 +43,16 @@ class ViewController: UIViewController {
         imageView.image = UIImage.checkmark
         return imageView
     }()
+    
+    var tagStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .horizontal
+        stackView.spacing = 10
+        stackView.alignment = .center
+        stackView.distribution = .equalSpacing
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        return stackView
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,6 +66,9 @@ class ViewController: UIViewController {
         view.addSubview(indexLabel)
         view.addSubview(pokemonLabel)
         view.addSubview(pokemonImage)
+        view.addSubview(tagStackView)
+        
+        addTagsToStackView()
         constrainstLayout()
     }
     
@@ -65,6 +78,7 @@ class ViewController: UIViewController {
         indexLabel.translatesAutoresizingMaskIntoConstraints = false
         pokemonLabel.translatesAutoresizingMaskIntoConstraints = false
         pokemonImage.translatesAutoresizingMaskIntoConstraints = false
+        tagStackView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             textfield.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 40),
@@ -83,9 +97,36 @@ class ViewController: UIViewController {
             pokemonImage.topAnchor.constraint(equalTo: pokemonLabel.bottomAnchor, constant: 16),
             pokemonImage.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             pokemonImage.widthAnchor.constraint(equalToConstant: 240),
-            pokemonImage.heightAnchor.constraint(equalToConstant: 240)
+            pokemonImage.heightAnchor.constraint(equalToConstant: 240),
+            
+            tagStackView.topAnchor.constraint(equalTo: pokemonImage.bottomAnchor, constant: 16),
+            tagStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
     }
+    
+    func addTagsToStackView() {
+        let tags = ["Fire", "Flying", "Legendary"]
+        for tag in tags {
+            let tagLabel = createTagLabel(text: tag)
+            tagStackView.addArrangedSubview(tagLabel)
+        }
+    }
 
+    func createTagLabel(text: String) -> PaddingLabel {
+        let label = PaddingLabel()
+        label.text = text
+        label.textColor = .white
+        label.backgroundColor = .blue
+        label.textAlignment = .center
+        label.font = UIFont.systemFont(ofSize: 14, weight: .medium)
+        label.layer.cornerRadius = 12
+        label.layer.masksToBounds = true
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        // Add padding
+        label.textInsets = UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10)
+        
+        return label
+    }
 }
 

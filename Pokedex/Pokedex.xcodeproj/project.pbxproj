@@ -15,6 +15,7 @@
 		B8F4B7AA2C12135E000596BD /* PokedexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F4B7A92C12135E000596BD /* PokedexTests.swift */; };
 		B8F4B7B42C12135E000596BD /* PokedexUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F4B7B32C12135E000596BD /* PokedexUITests.swift */; };
 		B8F4B7B62C12135E000596BD /* PokedexUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F4B7B52C12135E000596BD /* PokedexUITestsLaunchTests.swift */; };
+		B8F4B7C72C19F5B0000596BD /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F4B7C62C19F5B0000596BD /* PaddingLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		B8F4B7AF2C12135E000596BD /* PokedexUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PokedexUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8F4B7B32C12135E000596BD /* PokedexUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokedexUITests.swift; sourceTree = "<group>"; };
 		B8F4B7B52C12135E000596BD /* PokedexUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokedexUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		B8F4B7C62C19F5B0000596BD /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				B8F4B7962C12135C000596BD /* ViewController.swift */,
+				B8F4B7C62C19F5B0000596BD /* PaddingLabel.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -278,6 +281,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8F4B7C72C19F5B0000596BD /* PaddingLabel.swift in Sources */,
 				B8F4B7972C12135C000596BD /* ViewController.swift in Sources */,
 				B8F4B7932C12135C000596BD /* AppDelegate.swift in Sources */,
 				B8F4B7952C12135C000596BD /* SceneDelegate.swift in Sources */,
