@@ -35,6 +35,13 @@ class ViewController: UIViewController {
         label.text = "Pokémon"
         label.textColor = .black
         return label
+    }() 
+    
+    var pokemonImage: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        imageView.image = UIImage.checkmark
+        return imageView
     }()
 
     override func viewDidLoad() {
@@ -48,6 +55,7 @@ class ViewController: UIViewController {
         view.addSubview(doneButton)
         view.addSubview(indexLabel)
         view.addSubview(pokemonLabel)
+        view.addSubview(pokemonImage)
         constrainstLayout()
     }
     
@@ -56,6 +64,7 @@ class ViewController: UIViewController {
         doneButton.translatesAutoresizingMaskIntoConstraints = false
         indexLabel.translatesAutoresizingMaskIntoConstraints = false
         pokemonLabel.translatesAutoresizingMaskIntoConstraints = false
+        pokemonImage.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             textfield.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 40),
@@ -69,7 +78,12 @@ class ViewController: UIViewController {
             indexLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
             pokemonLabel.topAnchor.constraint(equalTo: indexLabel.bottomAnchor, constant: 16),
-            pokemonLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            pokemonLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            
+            pokemonImage.topAnchor.constraint(equalTo: pokemonLabel.bottomAnchor, constant: 16),
+            pokemonImage.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            pokemonImage.widthAnchor.constraint(equalToConstant: 240),
+            pokemonImage.heightAnchor.constraint(equalToConstant: 240)
         ])
     }
 
