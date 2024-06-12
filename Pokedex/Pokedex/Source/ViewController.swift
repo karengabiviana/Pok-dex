@@ -29,6 +29,13 @@ class ViewController: UIViewController {
         label.textColor = .red
         return label
     }()
+    
+    var pokemonLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Pokémon"
+        label.textColor = .black
+        return label
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +47,7 @@ class ViewController: UIViewController {
         view.addSubview(textfield)
         view.addSubview(doneButton)
         view.addSubview(indexLabel)
+        view.addSubview(pokemonLabel)
         constrainstLayout()
     }
     
@@ -47,6 +55,7 @@ class ViewController: UIViewController {
         textfield.translatesAutoresizingMaskIntoConstraints = false
         doneButton.translatesAutoresizingMaskIntoConstraints = false
         indexLabel.translatesAutoresizingMaskIntoConstraints = false
+        pokemonLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             textfield.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 40),
@@ -57,7 +66,10 @@ class ViewController: UIViewController {
             doneButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
             indexLabel.topAnchor.constraint(equalTo: doneButton.bottomAnchor, constant: 80),
-            indexLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            indexLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            
+            pokemonLabel.topAnchor.constraint(equalTo: indexLabel.bottomAnchor, constant: 16),
+            pokemonLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
     }
 
