@@ -22,6 +22,13 @@ class ViewController: UIViewController {
         let button = UIButton(configuration: .borderedTinted(), primaryAction: action)
         return button
     }()
+    
+    var indexLabel: UILabel = {
+        let label = UILabel()
+        label.text = "#000"
+        label.textColor = .red
+        return label
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,12 +39,14 @@ class ViewController: UIViewController {
         view.backgroundColor = .white
         view.addSubview(textfield)
         view.addSubview(doneButton)
+        view.addSubview(indexLabel)
         constrainstLayout()
     }
     
     func constrainstLayout() {
         textfield.translatesAutoresizingMaskIntoConstraints = false
         doneButton.translatesAutoresizingMaskIntoConstraints = false
+        indexLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             textfield.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 40),
@@ -45,7 +54,10 @@ class ViewController: UIViewController {
             textfield.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -40),
             
             doneButton.topAnchor.constraint(equalTo: textfield.bottomAnchor, constant: 20),
-            doneButton.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            doneButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            
+            indexLabel.topAnchor.constraint(equalTo: doneButton.bottomAnchor, constant: 80),
+            indexLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
     }
 
