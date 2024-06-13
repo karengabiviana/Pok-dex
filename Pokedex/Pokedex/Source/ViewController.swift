@@ -5,6 +5,8 @@
 //  Created by Karen Gabrieli Viana on 06/06/24.
 //
 
+// Codable -> protocolo de comunicação -> uncodable = serialização dos dados - enviar -> codable -> receber as informações
+
 import UIKit
 
 class ViewController: UIViewController {
@@ -35,7 +37,7 @@ class ViewController: UIViewController {
         label.text = "Pokémon"
         label.textColor = .black
         return label
-    }() 
+    }()
     
     var pokemonImage: UIImageView = {
         // sprites
@@ -53,7 +55,7 @@ class ViewController: UIViewController {
         stackView.distribution = .equalSpacing
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
-    }() 
+    }()
     
     var additionalInfosStackView: UIStackView = {
         let stackView = UIStackView()
@@ -69,7 +71,7 @@ class ViewController: UIViewController {
         let label = UILabel()
         label.text = "Height: 0.0m"
         return label
-    }() 
+    }()
     
     var weightLabel: UILabel = {
         let label = UILabel()
@@ -80,6 +82,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureLayout()
+        testingService()
     }
     
     func configureLayout() {
@@ -140,7 +143,7 @@ class ViewController: UIViewController {
             tagStackView.addArrangedSubview(tagLabel)
         }
     }
-
+    
     func createTagLabel(text: String) -> PaddingLabel {
         let label = PaddingLabel()
         label.text = text
@@ -163,5 +166,18 @@ class ViewController: UIViewController {
         additionalInfosStackView.addArrangedSubview(weightLabel)
     }
     
+    func testingService() {
+        let service = Service()
+        service.get(pokemonName: "pikachu") { result in
+            DispatchQueue.main.async {
+                switch result {
+                case let .failure(error):
+                    print(error)
+                case let .success(data):
+                    print(data)
+                }
+            }
+        }
+    }
 }
 
