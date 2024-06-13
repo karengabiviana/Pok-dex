@@ -38,6 +38,7 @@ class ViewController: UIViewController {
     }() 
     
     var pokemonImage: UIImageView = {
+        // sprites
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         imageView.image = UIImage.checkmark
@@ -52,8 +53,30 @@ class ViewController: UIViewController {
         stackView.distribution = .equalSpacing
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
+    }() 
+    
+    var additionalInfosStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.spacing = 8
+        stackView.alignment = .leading
+        stackView.distribution = .equalSpacing
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        return stackView
     }()
-
+    
+    var heightLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Height: 0.0m"
+        return label
+    }() 
+    
+    var weightLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Weight: 0.0kg"
+        return label
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureLayout()
@@ -67,8 +90,10 @@ class ViewController: UIViewController {
         view.addSubview(pokemonLabel)
         view.addSubview(pokemonImage)
         view.addSubview(tagStackView)
+        view.addSubview(additionalInfosStackView)
         
         addTagsToStackView()
+        addAdditionalInfosToStackView()
         constrainstLayout()
     }
     
@@ -79,6 +104,7 @@ class ViewController: UIViewController {
         pokemonLabel.translatesAutoresizingMaskIntoConstraints = false
         pokemonImage.translatesAutoresizingMaskIntoConstraints = false
         tagStackView.translatesAutoresizingMaskIntoConstraints = false
+        additionalInfosStackView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             textfield.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 40),
@@ -100,7 +126,10 @@ class ViewController: UIViewController {
             pokemonImage.heightAnchor.constraint(equalToConstant: 240),
             
             tagStackView.topAnchor.constraint(equalTo: pokemonImage.bottomAnchor, constant: 16),
-            tagStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            tagStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            
+            additionalInfosStackView.topAnchor.constraint(equalTo: tagStackView.bottomAnchor, constant: 16),
+            additionalInfosStackView.leadingAnchor.constraint(equalTo: pokemonImage.leadingAnchor)
         ])
     }
     
@@ -128,5 +157,11 @@ class ViewController: UIViewController {
         
         return label
     }
+    
+    func addAdditionalInfosToStackView() {
+        additionalInfosStackView.addArrangedSubview(heightLabel)
+        additionalInfosStackView.addArrangedSubview(weightLabel)
+    }
+    
 }
 
