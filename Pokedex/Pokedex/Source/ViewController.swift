@@ -124,7 +124,7 @@ class ViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         
         // Add padding
-        label.textInsets = UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10)
+        label.textInsets = UIEdgeInsets(top: 6, left: 12, bottom: 6, right: 12)
         
         return label
     }
