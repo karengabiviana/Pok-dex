@@ -109,16 +109,28 @@ class ViewController: UIViewController {
     
     @objc func doneButtonPressed() {
         guard let searchText = textfield.text?.lowercased(), !searchText.isEmpty else { return }
+        
+        
+        
         self.service.get(pokemonName: searchText) { result in
             DispatchQueue.main.async {
                 switch result {
                 case let .failure(error):
-                    print(error)
+                    self.errorAlertController()
                 case let .success(data):
                     self.updateUI(with: data)
                 }
             }
         }
+    }
+    
+    func errorAlertController() {
+        let alert = UIAlertController(title: "Pokémon não encontrado", message: "Tente novamente", preferredStyle: .alert )
+        
+        let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(action)
+        
+        self.present(alert, animated: true, completion: nil)
     }
     
     func updateUI(with pokemon: Pokemon) {
