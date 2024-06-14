@@ -14,10 +14,9 @@ enum ServiceError: Error {
 }
 
 class Service {
-    
     let baseURL = "https://pokeapi.co/api/v2/pokemon/"
     
-    func get(pokemonName: String, callback: @escaping (Result<Any, ServiceError>) -> Void) {
+    func get(pokemonName: String, callback: @escaping (Result<Pokemon, ServiceError>) -> Void) {
         let path = "\(pokemonName)/"
         guard let url = URL(string: baseURL + path) else {
             callback(.failure(.invalidURL))

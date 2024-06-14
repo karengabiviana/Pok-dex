@@ -10,6 +10,8 @@
 import UIKit
 
 class ViewController: UIViewController {
+    let service = Service()
+    
     let textfield: UITextField = {
         let field = UITextField()
         field.placeholder = "Que Pokémon você quer pesquisar?"
@@ -17,11 +19,12 @@ class ViewController: UIViewController {
         return field
     }()
     
-    let doneButton: UIButton = {
-        let action = UIAction(title: "Pesquisar", image: nil, identifier: nil) { _ in
-            print("Done button pressed")
-        }
-        let button = UIButton(configuration: .borderedTinted(), primaryAction: action)
+    var doneButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Pesquisar", for: .normal)
+        button.backgroundColor = .systemBlue
+        button.setTitleColor(.white, for: .normal)
+        button.layer.cornerRadius = 8
         return button
     }()
     
@@ -82,7 +85,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureLayout()
-        testingService()
+        configureDoneButton()
     }
     
     func configureLayout() {
@@ -99,6 +102,50 @@ class ViewController: UIViewController {
         addAdditionalInfosToStackView()
         constrainstLayout()
     }
+    
+    func configureDoneButton() {
+        doneButton.addTarget(self, action: #selector(doneButtonPressed), for: .touchUpInside)
+    }
+    
+    @objc func doneButtonPressed() {
+        guard let searchText = textfield.text?.lowercased(), !searchText.isEmpty else { return }
+        self.service.get(pokemonName: searchText) { result in
+            DispatchQueue.main.async {
+                switch result {
+                case let .failure(error):
+                    print(error)
+                case let .success(data):
+                    self.updateUI(with: data)
+                }
+            }
+        }
+    }
+    
+    func updateUI(with pokemon: Pokemon) {
+        indexLabel.text = "#\(pokemon.index)"
+        pokemonLabel.text = pokemon.name.capitalized
+        heightLabel.text = "Height: \(Double(pokemon.height) / 10.0)m"
+        weightLabel.text = "Weight: \(Double(pokemon.weight) / 10.0)kg"
+        // Image
+        if let imageUrl = pokemon.image.front_default, let url = URL(string: imageUrl) {
+            downloadImage(from: url)
+        }
+        // Types
+        tagStackView.arrangedSubviews.forEach{ $0.removeFromSuperview() }
+        for typeEntry in pokemon.types {
+            let tagLabel = createTagLabel(text: typeEntry.type.name.capitalized)
+            tagStackView.addArrangedSubview(tagLabel)
+        }
+    }
+    
+    func downloadImage(from url: URL) {
+            URLSession.shared.dataTask(with: url) { data, response, error in
+                guard let data = data, error == nil else { return }
+                DispatchQueue.main.async {
+                    self.pokemonImage.image = UIImage(data: data)
+                }
+            }.resume()
+        }
     
     func constrainstLayout() {
         textfield.translatesAutoresizingMaskIntoConstraints = false
@@ -137,7 +184,7 @@ class ViewController: UIViewController {
     }
     
     func addTagsToStackView() {
-        let tags = ["Fire", "Flying", "Legendary"]
+        let tags = ["Tipo"]
         for tag in tags {
             let tagLabel = createTagLabel(text: tag)
             tagStackView.addArrangedSubview(tagLabel)
@@ -164,20 +211,6 @@ class ViewController: UIViewController {
     func addAdditionalInfosToStackView() {
         additionalInfosStackView.addArrangedSubview(heightLabel)
         additionalInfosStackView.addArrangedSubview(weightLabel)
-    }
-    
-    func testingService() {
-        let service = Service()
-        service.get(pokemonName: "pikachu") { result in
-            DispatchQueue.main.async {
-                switch result {
-                case let .failure(error):
-                    print(error)
-                case let .success(data):
-                    print(data)
-                }
-            }
-        }
     }
 }
 
