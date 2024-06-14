@@ -98,9 +98,9 @@
 			children = (
 				B840FE822C1CB76000E0C7FA /* PokedexApp.swift */,
 				B840FE842C1CB76000E0C7FA /* ContentView.swift */,
+				B840FEAC2C1CE6A400E0C7FA /* Pokemon.swift */,
 				B840FE862C1CB76100E0C7FA /* Assets.xcassets */,
 				B840FE882C1CB76100E0C7FA /* Preview Content */,
-				B840FEAC2C1CE6A400E0C7FA /* Pokemon.swift */,
 			);
 			path = Pokedex;
 			sourceTree = "<group>";
