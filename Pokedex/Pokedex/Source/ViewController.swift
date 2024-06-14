@@ -43,10 +43,8 @@ class ViewController: UIViewController {
     }()
     
     var pokemonImage: UIImageView = {
-        // sprites
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
-        imageView.image = UIImage.checkmark
         return imageView
     }()
     
@@ -109,9 +107,6 @@ class ViewController: UIViewController {
     
     @objc func doneButtonPressed() {
         guard let searchText = textfield.text?.lowercased(), !searchText.isEmpty else { return }
-        
-        
-        
         self.service.get(pokemonName: searchText) { result in
             DispatchQueue.main.async {
                 switch result {
