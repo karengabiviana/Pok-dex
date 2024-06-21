@@ -8,7 +8,7 @@
 import SwiftUI
 import Combine
 
-struct Pokemon {
+struct Pokemon: Decodable {
     let id: Int
     let name: String
     let sprites: PokemonSprites
@@ -17,15 +17,15 @@ struct Pokemon {
     let weight: Int
 }
 
-struct PokemonSprites {
+struct PokemonSprites: Decodable {
     let front_default: String?
 }
 
-struct PokemonTypeEntry {
+struct PokemonTypeEntry: Decodable {
     let slot: Int
     let type: PokemonType
 }
 
-struct PokemonType {
+struct PokemonType: Decodable {
     let name: String
 }
