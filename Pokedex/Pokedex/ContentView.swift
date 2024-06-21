@@ -9,17 +9,18 @@ import SwiftUI
 import Combine
 
 struct ContentView: View {
-    @State private var text: String = ""
-    @State private var typesTags: [String] = ["Tipo1", "Tipo2"]
+    @StateObject var viewModel = ViewModel()
+    
+    @State var typesTags: [String] = ["Tipo1", "Tipo2"]
     
     var body: some View {
         VStack {
-            TextField("Procure o seu Pokémon", text: $text)
+            TextField("Procure o seu Pokémon", text: $viewModel.textFieldText)
                 .padding()
                 .textFieldStyle(RoundedBorderTextFieldStyle())
             
             Button("Procurar", role: nil, action:{
-                print("Procurando por \(text)")
+                viewModel.buttonPressed()
             })
             .buttonStyle(.borderedProminent)
             
