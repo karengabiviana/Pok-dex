@@ -9,7 +9,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class DetailViewController: UIViewController {
     let service = Service()
     
     let textfield: UITextField = {

@@ -7,9 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B8EFC8322C2E056E00EEFD23 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EFC8312C2E056E00EEFD23 /* ListViewController.swift */; };
+		B8EFC8342C2E05A700EEFD23 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EFC8332C2E05A700EEFD23 /* ViewModel.swift */; };
 		B8F4B7932C12135C000596BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F4B7922C12135C000596BD /* AppDelegate.swift */; };
 		B8F4B7952C12135C000596BD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F4B7942C12135C000596BD /* SceneDelegate.swift */; };
-		B8F4B7972C12135C000596BD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F4B7962C12135C000596BD /* ViewController.swift */; };
+		B8F4B7972C12135C000596BD /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F4B7962C12135C000596BD /* DetailViewController.swift */; };
 		B8F4B79C2C12135E000596BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8F4B79B2C12135E000596BD /* Assets.xcassets */; };
 		B8F4B79F2C12135E000596BD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8F4B79D2C12135E000596BD /* LaunchScreen.storyboard */; };
 		B8F4B7AA2C12135E000596BD /* PokedexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F4B7A92C12135E000596BD /* PokedexTests.swift */; };
@@ -38,10 +40,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B8EFC8312C2E056E00EEFD23 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		B8EFC8332C2E05A700EEFD23 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		B8F4B78F2C12135C000596BD /* Pokedex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pokedex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8F4B7922C12135C000596BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B8F4B7942C12135C000596BD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B8F4B7962C12135C000596BD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B8F4B7962C12135C000596BD /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		B8F4B79B2C12135E000596BD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B8F4B79E2C12135E000596BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B8F4B7A02C12135E000596BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -149,10 +153,12 @@
 		B8F4B7C52C17DB95000596BD /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				B8F4B7962C12135C000596BD /* ViewController.swift */,
-				B8F4B7C62C19F5B0000596BD /* PaddingLabel.swift */,
+				B8F4B7962C12135C000596BD /* DetailViewController.swift */,
+				B8EFC8312C2E056E00EEFD23 /* ListViewController.swift */,
+				B8EFC8332C2E05A700EEFD23 /* ViewModel.swift */,
 				B8F4B7C82C1B56DD000596BD /* Pokemon.swift */,
 				B8F4B7CB2C1B6133000596BD /* Service.swift */,
+				B8F4B7C62C19F5B0000596BD /* PaddingLabel.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -289,10 +295,12 @@
 			files = (
 				B8F4B7C92C1B56DD000596BD /* Pokemon.swift in Sources */,
 				B8F4B7C72C19F5B0000596BD /* PaddingLabel.swift in Sources */,
-				B8F4B7972C12135C000596BD /* ViewController.swift in Sources */,
+				B8F4B7972C12135C000596BD /* DetailViewController.swift in Sources */,
 				B8F4B7932C12135C000596BD /* AppDelegate.swift in Sources */,
 				B8F4B7952C12135C000596BD /* SceneDelegate.swift in Sources */,
 				B8F4B7CC2C1B6133000596BD /* Service.swift in Sources */,
+				B8EFC8342C2E05A700EEFD23 /* ViewModel.swift in Sources */,
+				B8EFC8322C2E056E00EEFD23 /* ListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
