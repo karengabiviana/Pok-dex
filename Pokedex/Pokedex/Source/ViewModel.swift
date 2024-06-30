@@ -5,4 +5,12 @@
 //  Created by Karen Gabrieli Viana on 27/06/24.
 //
 
-import Foundation
+import UIKit
+
+class ViewModel {
+    
+    @objc func doneButtonPressed() {
+       
+    }
+    
+}
