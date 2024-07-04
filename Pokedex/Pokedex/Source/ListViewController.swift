@@ -8,11 +8,11 @@
 import UIKit
 
 class ListViewController: UIViewController {
-    let viewModel = ViewModel()
+    var viewModel: ViewModel!
     
     let tableView: UITableView = {
         let tableView = UITableView()
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "item")
+        tableView.register(CustomCell.self, forCellReuseIdentifier: "item")
         return tableView
     }()
     
@@ -46,6 +46,12 @@ class ListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let service = Service()
+        viewModel = ViewModel(service: service)
+        
+        viewModel.loadData()
+        
         configureTableView()
         configureView()
     }

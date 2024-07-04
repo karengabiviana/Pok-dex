@@ -7,13 +7,17 @@
 
 import UIKit
 
+protocol ServiceProtocol {
+    func getPokemon(completion: @escaping (Result<[Pokemon], ServiceError>) -> Void)
+}
+
 enum ServiceError: Error {
     case invalidURL
     case network(Error?)
     case invalidResponse(Error)
 }
 
-class Service {
+class Service: ServiceProtocol {
     let baseURL = "https://pokeapi.co/api/v2/pokemon/"
     
     func getPokemon(completion: @escaping (Result<[Pokemon], ServiceError>) -> Void) {
