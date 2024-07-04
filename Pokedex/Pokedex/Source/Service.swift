@@ -16,27 +16,29 @@ enum ServiceError: Error {
 class Service {
     let baseURL = "https://pokeapi.co/api/v2/pokemon/"
     
-    func get(pokemonName: String, callback: @escaping (Result<Pokemon, ServiceError>) -> Void) {
-        let path = "\(pokemonName)/"
-        guard let url = URL(string: baseURL + path) else {
-            callback(.failure(.invalidURL))
-            return
-        }
-        let task = URLSession.shared.dataTask(with: url) { data, response, error in
-            guard let data = data, error == nil else {
-                callback(.failure(.network(error)))
+    func getPokemon(completion: @escaping (Result<[Pokemon], ServiceError>) -> Void) {
+            var components = URLComponents(string: baseURL)
+            components?.queryItems = [.init(name: "offset", value: "0"), .init(name: "limit", value: "151")]
+
+            guard let url = components?.url else {
+                completion(.failure(.invalidURL))
                 return
             }
-            
-            do {
-                let json = try JSONDecoder().decode(Pokemon.self, from: data)
-                callback(.success(json))
-            } catch {
-                callback(.failure(.invalidResponse(error)))
+    let task = URLSession.shared.dataTask(with: url) { data, response, error in
+                guard let data = data, error == nil else {
+                    completion(.failure(.network(error)))
+                    return
+                }
+
+                do {
+                    let list = try JSONDecoder().decode(List.self, from: data)
+                    completion(.success(list.results))
+                } catch {
+                    completion(.failure(.invalidResponse(error)))
+                }
             }
-        }
-        
-        task.resume()
+
+            task.resume()
     }
 }
 
