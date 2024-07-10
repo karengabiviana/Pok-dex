@@ -10,24 +10,25 @@ import UIKit
 class ViewModel {
     
     let service: ServiceProtocol
+    var pokemon: [Pokemon] = []
     
     init(service: ServiceProtocol) {
         self.service = service
     }
     
-    func loadData() {
+    func loadData(completion: @escaping () -> Void) {
         service.getPokemon { result in
             switch result {
             case .success(let data):
-                //carregar a lista
-                break
+                self.pokemon = data
+                print("\(self.pokemon)")
+                completion()
             case .failure(let error):
-                // lidar com o erro
-                break
+                print("\(self.pokemon)")
+                completion()
             }
         }
     }
-    
     @objc func doneButtonPressed() {
         // button pressed
     }

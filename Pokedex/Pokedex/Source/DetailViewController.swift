@@ -82,14 +82,7 @@ class DetailViewController: UIViewController {
         constrainstLayout()
     }
     
-    func errorAlertController() {
-        let alert = UIAlertController(title: "Pokémon não encontrado", message: "Tente novamente", preferredStyle: .alert )
-        
-        let action = UIAlertAction(title: "OK", style: .default, handler: nil)
-        alert.addAction(action)
-        
-        self.present(alert, animated: true, completion: nil)
-    }
+   
     
     func updateUI(with pokemon: Pokemon) {
         indexLabel.text = "#\(pokemon.index)"

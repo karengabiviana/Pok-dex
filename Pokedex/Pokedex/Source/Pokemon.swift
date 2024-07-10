@@ -16,12 +16,12 @@ struct Pokemon: Decodable {
     let weight: Int
     
     enum CodingKeys: String, CodingKey {
-       case index = "id"
-       case name
-       case image = "sprites"
-       case types
-       case height
-       case weight
+        case index = "id"
+        case name
+        case image = "sprites"
+        case types
+        case height
+        case weight
     }
     
 }

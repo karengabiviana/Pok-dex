@@ -25,7 +25,7 @@ class ListViewController: UIViewController {
         stackview.layoutMargins = UIEdgeInsets(top: 16, left: 24, bottom: 16, right: 24)
         stackview.isLayoutMarginsRelativeArrangement = true
         stackview.translatesAutoresizingMaskIntoConstraints = false
-       return stackview
+        return stackview
     }()
     
     let textfield: UITextField = {
@@ -50,7 +50,11 @@ class ListViewController: UIViewController {
         let service = Service()
         viewModel = ViewModel(service: service)
         
-        viewModel.loadData()
+        viewModel.loadData {
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
         
         configureTableView()
         configureView()
@@ -78,17 +82,27 @@ class ListViewController: UIViewController {
     func configureDoneButton() {
         doneButton.addTarget(self, action: #selector(viewModel.doneButtonPressed), for: .touchUpInside)
     }
-
+    
+    func errorAlertController() {
+        let alert = UIAlertController(title: "Error", message: "Try again", preferredStyle: .alert )
+        
+        let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(action)
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+    
 }
 
 extension ListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 151
-    }
-
+        return  viewModel.pokemon.count   }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "item", for: indexPath)
-        cell.textLabel?.text = "\(indexPath.row + 1)"
+        let cell = tableView.dequeueReusableCell(withIdentifier: "item", for: indexPath) as! CustomCell
+        let pokemon = viewModel.pokemon[indexPath.row]
+        cell.index.text = "#\(pokemon.index)"
+        cell.pokemonName.text = pokemon.name
         return cell
     }
 }
