@@ -8,6 +8,11 @@
 import UIKit
 
 struct List: Decodable {
-        var count: Int
-        var results: [Pokemon]
-    }
+    var count: Int
+    var results: [PokemonSummary]
+}
+
+struct PokemonSummary: Decodable {
+    let name: String
+    let url: URL
+}

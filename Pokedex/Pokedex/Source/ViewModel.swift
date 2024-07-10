@@ -10,7 +10,7 @@ import UIKit
 class ViewModel {
     
     let service: ServiceProtocol
-    var pokemon: [Pokemon] = []
+    var pokemon: [PokemonSummary] = []
     
     init(service: ServiceProtocol) {
         self.service = service

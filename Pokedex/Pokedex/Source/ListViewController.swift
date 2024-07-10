@@ -101,7 +101,7 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "item", for: indexPath) as! CustomCell
         let pokemon = viewModel.pokemon[indexPath.row]
-        cell.index.text = "#\(pokemon.index)"
+        cell.index.text = String(format: "#%03d", indexPath.row + 1)
         cell.pokemonName.text = pokemon.name
         return cell
     }
