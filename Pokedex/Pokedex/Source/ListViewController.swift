@@ -16,34 +16,6 @@ class ListViewController: UIViewController {
         return tableView
     }()
     
-    let searchStackView: UIStackView = {
-        let stackview = UIStackView()
-        stackview.axis = .horizontal
-        stackview.alignment = .center
-        stackview.distribution = .fill
-        stackview.spacing = 16
-        stackview.layoutMargins = UIEdgeInsets(top: 16, left: 24, bottom: 16, right: 24)
-        stackview.isLayoutMarginsRelativeArrangement = true
-        stackview.translatesAutoresizingMaskIntoConstraints = false
-        return stackview
-    }()
-    
-    let textfield: UITextField = {
-        let field = UITextField()
-        field.placeholder = "Search by Index or Pokémon"
-        field.borderStyle = .roundedRect
-        return field
-    }()
-    
-    var doneButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("Search", for: .normal)
-        button.backgroundColor = .systemBlue
-        button.setTitleColor(.white, for: .normal)
-        button.layer.cornerRadius = 8
-        return button
-    }()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -57,14 +29,6 @@ class ListViewController: UIViewController {
         }
         
         configureTableView()
-        configureView()
-    }
-    
-    func configureView() {
-        searchStackView.addArrangedSubview(textfield)
-        searchStackView.addArrangedSubview(doneButton)
-        searchStackView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 48)
-        tableView.tableHeaderView = searchStackView
     }
     
     func configureTableView() {
@@ -77,10 +41,6 @@ class ListViewController: UIViewController {
     func setTableViewDelegates() {
         tableView.delegate = self
         tableView.dataSource = self
-    }
-    
-    func configureDoneButton() {
-        doneButton.addTarget(self, action: #selector(viewModel.doneButtonPressed), for: .touchUpInside)
     }
     
     func errorAlertController() {

@@ -29,8 +29,4 @@ class ViewModel {
             }
         }
     }
-    @objc func doneButtonPressed() {
-        // button pressed
-    }
-    
 }
