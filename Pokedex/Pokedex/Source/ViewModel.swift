@@ -21,10 +21,8 @@ class ViewModel {
             switch result {
             case .success(let data):
                 self.pokemon = data
-                print("\(self.pokemon)")
                 completion()
             case .failure(let error):
-                print("\(self.pokemon)")
                 completion()
             }
         }
