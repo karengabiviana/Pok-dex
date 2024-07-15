@@ -42,16 +42,6 @@ class ListViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
     }
-    
-    func errorAlertController() {
-        let alert = UIAlertController(title: "Error", message: "Try again", preferredStyle: .alert )
-        
-        let action = UIAlertAction(title: "OK", style: .default, handler: nil)
-        alert.addAction(action)
-        
-        self.present(alert, animated: true, completion: nil)
-    }
-    
 }
 
 extension ListViewController: UITableViewDelegate, UITableViewDataSource {
