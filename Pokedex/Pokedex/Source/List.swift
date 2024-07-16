@@ -15,4 +15,7 @@ struct List: Decodable {
 struct PokemonSummary: Decodable {
     let name: String
     let url: URL
+    var index: String {
+            url.lastPathComponent
+        }
 }
