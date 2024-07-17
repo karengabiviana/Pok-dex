@@ -8,7 +8,7 @@
 import UIKit
 
 protocol ServiceProtocol {
-    func getPokemon(completion: @escaping (Result<[PokemonSummary], ServiceError>) -> Void)
+    func getPokemonList(completion: @escaping (Result<[PokemonSummary], ServiceError>) -> Void)
 }
 
 enum ServiceError: Error {
@@ -20,7 +20,7 @@ enum ServiceError: Error {
 class Service: ServiceProtocol {
     let baseURL = "https://pokeapi.co/api/v2/pokemon/"
     
-    func getPokemon(completion: @escaping (Result<[PokemonSummary], ServiceError>) -> Void) {
+    func getPokemonList(completion: @escaping (Result<[PokemonSummary], ServiceError>) -> Void) {
         var components = URLComponents(string: baseURL)
         components?.queryItems = [.init(name: "offset", value: "0"), .init(name: "limit", value: "151")]
         

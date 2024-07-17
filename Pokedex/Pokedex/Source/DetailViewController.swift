@@ -82,8 +82,6 @@ class DetailViewController: UIViewController {
         constrainstLayout()
     }
     
-   
-    
     func updateUI(with pokemon: Pokemon) {
         indexLabel.text = "#\(pokemon.index)"
         pokemonLabel.text = pokemon.name.capitalized
@@ -118,7 +116,7 @@ class DetailViewController: UIViewController {
         additionalInfosStackView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            indexLabel.topAnchor.constraint(equalTo: view.bottomAnchor, constant: 80),
+            indexLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 80),
             indexLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
             pokemonLabel.topAnchor.constraint(equalTo: indexLabel.bottomAnchor, constant: 16),

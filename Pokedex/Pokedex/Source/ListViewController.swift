@@ -61,4 +61,10 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let detailViewController = DetailViewController()
+        self.navigationController?.pushViewController(detailViewController, animated: true)
+    }
+    
 }

@@ -17,7 +17,7 @@ class ViewModel {
     }
     
     func loadData(completion: @escaping () -> Void) {
-        service.getPokemon { result in
+        service.getPokemonList { result in
             switch result {
             case .success(let data):
                 self.pokemon = data
