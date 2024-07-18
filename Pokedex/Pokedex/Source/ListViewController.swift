@@ -8,7 +8,9 @@
 import UIKit
 
 class ListViewController: UIViewController {
-    var viewModel: ViewModel!
+    var viewModel: ListViewModel!
+    
+    var selectedIndex = "1"
     
     let tableView: UITableView = {
         let tableView = UITableView()
@@ -19,8 +21,8 @@ class ListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let service = Service()
-        viewModel = ViewModel(service: service)
+        let service = ListService()
+        viewModel = ListViewModel(service: service)
         
         viewModel.loadData {
             DispatchQueue.main.async {
@@ -52,19 +54,25 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "item", for: indexPath) as! CustomCell
         let pokemon = viewModel.pokemon[indexPath.row]
         cell.pokemonName.text = pokemon.name
+        selectedIndex = pokemon.index
         
         if let index = Int(pokemon.index) {
                 cell.index.text = String(format: "#%03d", index)
             } else {
                 cell.index.text = "#\(pokemon.index)"
             }
-        
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let detailViewController = DetailViewController()
-        self.navigationController?.pushViewController(detailViewController, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        let selectedStringIndex = viewModel.pokemon[indexPath.row].index
+        
+        let detailVC = DetailViewController()
+        
+        detailVC.selectedIndex = selectedStringIndex
+        self.navigationController?.pushViewController(detailVC, animated: true)
     }
     
 }

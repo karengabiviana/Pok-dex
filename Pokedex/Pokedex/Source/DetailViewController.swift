@@ -10,7 +10,9 @@
 import UIKit
 
 class DetailViewController: UIViewController {
-    let service = Service()
+    var viewModel: DetailViewModel!
+    
+    var selectedIndex: String?
     
     var indexLabel: UILabel = {
         let label = UILabel()
@@ -66,7 +68,12 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let service = DetailService()
+        viewModel = DetailViewModel(service: service)
+        
         configureLayout()
+        getIndex()
     }
     
     func configureLayout() {
@@ -80,6 +87,19 @@ class DetailViewController: UIViewController {
         addTagsToStackView()
         addAdditionalInfosToStackView()
         constrainstLayout()
+    }
+    
+    func getIndex() {
+        viewModel.service.getPokemonDetails(index: selectedIndex ?? "1" ) { result in
+            DispatchQueue.main.async {
+                switch result {
+                case let .failure(error):
+                    print("Erro")
+                case let .success(data):
+                    self.updateUI(with: data)
+                }
+            }
+        }
     }
     
     func updateUI(with pokemon: Pokemon) {
@@ -100,13 +120,13 @@ class DetailViewController: UIViewController {
     }
     
     func downloadImage(from url: URL) {
-            URLSession.shared.dataTask(with: url) { data, response, error in
-                guard let data = data, error == nil else { return }
-                DispatchQueue.main.async {
-                    self.pokemonImage.image = UIImage(data: data)
-                }
-            }.resume()
-        }
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            guard let data = data, error == nil else { return }
+            DispatchQueue.main.async {
+                self.pokemonImage.image = UIImage(data: data)
+            }
+        }.resume()
+    }
     
     func constrainstLayout() {
         indexLabel.translatesAutoresizingMaskIntoConstraints = false

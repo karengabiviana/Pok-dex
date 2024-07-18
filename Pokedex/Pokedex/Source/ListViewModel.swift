@@ -7,12 +7,12 @@
 
 import UIKit
 
-class ViewModel {
+class ListViewModel {
     
-    let service: ServiceProtocol
+    let service: ListServiceProtocol
     var pokemon: [PokemonSummary] = []
     
-    init(service: ServiceProtocol) {
+    init(service: ListServiceProtocol) {
         self.service = service
     }
     

@@ -7,20 +7,20 @@
 
 import UIKit
 
-protocol ServiceProtocol {
-    func getPokemonList(completion: @escaping (Result<[PokemonSummary], ServiceError>) -> Void)
+protocol ListServiceProtocol {
+    func getPokemonList(completion: @escaping (Result<[PokemonSummary], ListServiceError>) -> Void)
 }
 
-enum ServiceError: Error {
+enum ListServiceError: Error {
     case invalidURL
     case network(Error?)
     case invalidResponse(Error)
 }
 
-class Service: ServiceProtocol {
+class ListService: ListServiceProtocol {
     let baseURL = "https://pokeapi.co/api/v2/pokemon/"
     
-    func getPokemonList(completion: @escaping (Result<[PokemonSummary], ServiceError>) -> Void) {
+    func getPokemonList(completion: @escaping (Result<[PokemonSummary], ListServiceError>) -> Void) {
         var components = URLComponents(string: baseURL)
         components?.queryItems = [.init(name: "offset", value: "0"), .init(name: "limit", value: "151")]
         

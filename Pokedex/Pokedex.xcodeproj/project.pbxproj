@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B8C066052C49A653003D5B7A /* DetailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C066042C49A653003D5B7A /* DetailService.swift */; };
+		B8C066072C49A8A9003D5B7A /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C066062C49A8A9003D5B7A /* DetailViewModel.swift */; };
 		B8EFC8322C2E056E00EEFD23 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EFC8312C2E056E00EEFD23 /* ListViewController.swift */; };
-		B8EFC8342C2E05A700EEFD23 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EFC8332C2E05A700EEFD23 /* ViewModel.swift */; };
+		B8EFC8342C2E05A700EEFD23 /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EFC8332C2E05A700EEFD23 /* ListViewModel.swift */; };
 		B8EFC8372C2E081100EEFD23 /* UIView+Pin.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EFC8362C2E081100EEFD23 /* UIView+Pin.swift */; };
 		B8EFC8392C372DAF00EEFD23 /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EFC8382C372DAF00EEFD23 /* List.swift */; };
 		B8EFC83B2C37394C00EEFD23 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EFC83A2C37394C00EEFD23 /* CustomCell.swift */; };
@@ -22,7 +24,7 @@
 		B8F4B7B62C12135E000596BD /* PokedexUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F4B7B52C12135E000596BD /* PokedexUITestsLaunchTests.swift */; };
 		B8F4B7C72C19F5B0000596BD /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F4B7C62C19F5B0000596BD /* PaddingLabel.swift */; };
 		B8F4B7C92C1B56DD000596BD /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F4B7C82C1B56DD000596BD /* Pokemon.swift */; };
-		B8F4B7CC2C1B6133000596BD /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F4B7CB2C1B6133000596BD /* Service.swift */; };
+		B8F4B7CC2C1B6133000596BD /* ListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F4B7CB2C1B6133000596BD /* ListService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,8 +45,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B8C066042C49A653003D5B7A /* DetailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailService.swift; sourceTree = "<group>"; };
+		B8C066062C49A8A9003D5B7A /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		B8EFC8312C2E056E00EEFD23 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
-		B8EFC8332C2E05A700EEFD23 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		B8EFC8332C2E05A700EEFD23 /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
 		B8EFC8362C2E081100EEFD23 /* UIView+Pin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Pin.swift"; sourceTree = "<group>"; };
 		B8EFC8382C372DAF00EEFD23 /* List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
 		B8EFC83A2C37394C00EEFD23 /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
@@ -62,7 +66,7 @@
 		B8F4B7B52C12135E000596BD /* PokedexUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokedexUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		B8F4B7C62C19F5B0000596BD /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 		B8F4B7C82C1B56DD000596BD /* Pokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
-		B8F4B7CB2C1B6133000596BD /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		B8F4B7CB2C1B6133000596BD /* ListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,12 +174,14 @@
 			children = (
 				B8F4B7962C12135C000596BD /* DetailViewController.swift */,
 				B8EFC8312C2E056E00EEFD23 /* ListViewController.swift */,
-				B8EFC8332C2E05A700EEFD23 /* ViewModel.swift */,
+				B8EFC8332C2E05A700EEFD23 /* ListViewModel.swift */,
 				B8F4B7C82C1B56DD000596BD /* Pokemon.swift */,
 				B8EFC8382C372DAF00EEFD23 /* List.swift */,
-				B8F4B7CB2C1B6133000596BD /* Service.swift */,
+				B8F4B7CB2C1B6133000596BD /* ListService.swift */,
 				B8F4B7C62C19F5B0000596BD /* PaddingLabel.swift */,
 				B8EFC83A2C37394C00EEFD23 /* CustomCell.swift */,
+				B8C066042C49A653003D5B7A /* DetailService.swift */,
+				B8C066062C49A8A9003D5B7A /* DetailViewModel.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -318,8 +324,10 @@
 				B8F4B7932C12135C000596BD /* AppDelegate.swift in Sources */,
 				B8F4B7952C12135C000596BD /* SceneDelegate.swift in Sources */,
 				B8EFC8372C2E081100EEFD23 /* UIView+Pin.swift in Sources */,
-				B8F4B7CC2C1B6133000596BD /* Service.swift in Sources */,
-				B8EFC8342C2E05A700EEFD23 /* ViewModel.swift in Sources */,
+				B8F4B7CC2C1B6133000596BD /* ListService.swift in Sources */,
+				B8C066072C49A8A9003D5B7A /* DetailViewModel.swift in Sources */,
+				B8EFC8342C2E05A700EEFD23 /* ListViewModel.swift in Sources */,
+				B8C066052C49A653003D5B7A /* DetailService.swift in Sources */,
 				B8EFC8322C2E056E00EEFD23 /* ListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
