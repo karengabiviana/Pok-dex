@@ -18,7 +18,7 @@ enum ListServiceError: Error {
 }
 
 class ListService: ListServiceProtocol {
-    let baseURL = "https://pokeapi.co/api/v2/pokemon/"
+    private let baseURL = "https://pokeapi.co/api/v2/pokemon/"
     
     func getPokemonList(completion: @escaping (Result<[PokemonSummary], ListServiceError>) -> Void) {
         var components = URLComponents(string: baseURL)

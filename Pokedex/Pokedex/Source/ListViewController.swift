@@ -8,11 +8,11 @@
 import UIKit
 
 class ListViewController: UIViewController {
-    var viewModel: ListViewModel!
+    private var viewModel: ListViewModel!
     
-    var selectedIndex = "1"
+    private var selectedIndex = "1"
     
-    let tableView: UITableView = {
+    private let tableView: UITableView = {
         let tableView = UITableView()
         tableView.register(CustomCell.self, forCellReuseIdentifier: "item")
         return tableView

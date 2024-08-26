@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		B8C066052C49A653003D5B7A /* DetailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C066042C49A653003D5B7A /* DetailService.swift */; };
 		B8C066072C49A8A9003D5B7A /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C066062C49A8A9003D5B7A /* DetailViewModel.swift */; };
+		B8D539262C7CF9BD00400E9A /* PokemonIndexFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D539252C7CF9BD00400E9A /* PokemonIndexFormatter.swift */; };
 		B8EFC8322C2E056E00EEFD23 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EFC8312C2E056E00EEFD23 /* ListViewController.swift */; };
 		B8EFC8342C2E05A700EEFD23 /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EFC8332C2E05A700EEFD23 /* ListViewModel.swift */; };
 		B8EFC8372C2E081100EEFD23 /* UIView+Pin.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EFC8362C2E081100EEFD23 /* UIView+Pin.swift */; };
@@ -47,6 +48,7 @@
 /* Begin PBXFileReference section */
 		B8C066042C49A653003D5B7A /* DetailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailService.swift; sourceTree = "<group>"; };
 		B8C066062C49A8A9003D5B7A /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		B8D539252C7CF9BD00400E9A /* PokemonIndexFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonIndexFormatter.swift; sourceTree = "<group>"; };
 		B8EFC8312C2E056E00EEFD23 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		B8EFC8332C2E05A700EEFD23 /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
 		B8EFC8362C2E081100EEFD23 /* UIView+Pin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Pin.swift"; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 				B8EFC83A2C37394C00EEFD23 /* CustomCell.swift */,
 				B8C066042C49A653003D5B7A /* DetailService.swift */,
 				B8C066062C49A8A9003D5B7A /* DetailViewModel.swift */,
+				B8D539252C7CF9BD00400E9A /* PokemonIndexFormatter.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -325,6 +328,7 @@
 				B8F4B7952C12135C000596BD /* SceneDelegate.swift in Sources */,
 				B8EFC8372C2E081100EEFD23 /* UIView+Pin.swift in Sources */,
 				B8F4B7CC2C1B6133000596BD /* ListService.swift in Sources */,
+				B8D539262C7CF9BD00400E9A /* PokemonIndexFormatter.swift in Sources */,
 				B8C066072C49A8A9003D5B7A /* DetailViewModel.swift in Sources */,
 				B8EFC8342C2E05A700EEFD23 /* ListViewModel.swift in Sources */,
 				B8C066052C49A653003D5B7A /* DetailService.swift in Sources */,

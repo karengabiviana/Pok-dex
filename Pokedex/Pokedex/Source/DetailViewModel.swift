@@ -10,7 +10,7 @@ import UIKit
 class DetailViewModel {
     
     let service: DetailServiceProtocol
-    var pokemonDetails: Pokemon?
+    private var pokemonDetails: Pokemon?
     
     init(service: DetailServiceProtocol) {
         self.service = service

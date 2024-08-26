@@ -10,31 +10,31 @@
 import UIKit
 
 class DetailViewController: UIViewController {
-    var viewModel: DetailViewModel!
+    private var viewModel: DetailViewModel!
     
     var selectedIndex: String?
     
-    var indexLabel: UILabel = {
+    private var indexLabel: UILabel = {
         let label = UILabel()
         label.text = "#000"
         label.textColor = .red
         return label
     }()
     
-    var pokemonLabel: UILabel = {
+    private var pokemonLabel: UILabel = {
         let label = UILabel()
         label.text = "Pokémon"
         label.textColor = .black
         return label
     }()
     
-    var pokemonImage: UIImageView = {
+    private var pokemonImage: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     
-    var tagStackView: UIStackView = {
+    private var tagStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
         stackView.spacing = 10
@@ -44,7 +44,7 @@ class DetailViewController: UIViewController {
         return stackView
     }()
     
-    var additionalInfosStackView: UIStackView = {
+    private var additionalInfosStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.spacing = 8
@@ -54,13 +54,13 @@ class DetailViewController: UIViewController {
         return stackView
     }()
     
-    var heightLabel: UILabel = {
+    private var heightLabel: UILabel = {
         let label = UILabel()
         label.text = "Height: 0.0m"
         return label
     }()
     
-    var weightLabel: UILabel = {
+    private var weightLabel: UILabel = {
         let label = UILabel()
         label.text = "Weight: 0.0kg"
         return label

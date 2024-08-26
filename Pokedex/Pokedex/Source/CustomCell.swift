@@ -11,7 +11,7 @@ class CustomCell: UITableViewCell {
     var index = UILabel()
     var pokemonName = UILabel()
     
-    lazy var cellStackView: UIStackView = {
+    private lazy var cellStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
         stackView.distribution = .fillEqually
