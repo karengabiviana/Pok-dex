@@ -16,7 +16,7 @@ class DetailViewModel {
         self.service = service
     }
     
-    func loadData(pokemonIndex:String, completion: @escaping () -> Void) {
+    func loadData(pokemonIndex: String, completion: @escaping () -> Void) {
         service.getPokemonDetails(index: pokemonIndex) { result in
             switch result {
             case .success(let data):

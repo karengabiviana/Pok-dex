@@ -12,7 +12,7 @@ struct List: Decodable {
     var results: [PokemonSummary]
 }
 
-struct PokemonSummary: Decodable {
+struct PokemonSummary: Decodable, IndexFormatable {
     let name: String
     let url: URL
     var index: String {

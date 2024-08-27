@@ -103,7 +103,7 @@ class DetailViewController: UIViewController {
     }
     
     func updateUI(with pokemon: Pokemon) {
-        indexLabel.text = "#\(pokemon.index)"
+        indexLabel.text = pokemon.formattedIndex
         pokemonLabel.text = pokemon.name.capitalized
         heightLabel.text = "Height: \(Double(pokemon.height) / 10.0)m"
         weightLabel.text = "Weight: \(Double(pokemon.weight) / 10.0)kg"

@@ -7,8 +7,8 @@
 
 import UIKit
 
-struct Pokemon: Decodable {
-    let index: Int
+struct Pokemon: Decodable, IndexFormatable {
+    let index: String
     let name: String
     let image: PokemonSprites
     let types: [PokemonTypeEntry]

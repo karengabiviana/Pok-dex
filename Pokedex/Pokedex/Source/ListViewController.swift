@@ -10,8 +10,6 @@ import UIKit
 class ListViewController: UIViewController {
     private var viewModel: ListViewModel!
     
-    private var selectedIndex = "1"
-    
     private let tableView: UITableView = {
         let tableView = UITableView()
         tableView.register(CustomCell.self, forCellReuseIdentifier: "item")
@@ -54,13 +52,7 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "item", for: indexPath) as! CustomCell
         let pokemon = viewModel.pokemon[indexPath.row]
         cell.pokemonName.text = pokemon.name
-        selectedIndex = pokemon.index
-        
-        if let index = Int(pokemon.index) {
-                cell.index.text = String(format: "#%03d", index)
-            } else {
-                cell.index.text = "#\(pokemon.index)"
-            }
+        cell.index.text = pokemon.formattedIndex
         return cell
     }
     
