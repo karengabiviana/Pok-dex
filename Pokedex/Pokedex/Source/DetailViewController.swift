@@ -14,27 +14,27 @@ class DetailViewController: UIViewController {
     
     var selectedIndex: String?
     
-    private var indexLabel: UILabel = {
+    var indexLabel: UILabel = {
         let label = UILabel()
         label.text = "#000"
         label.textColor = .red
         return label
     }()
     
-    private var pokemonLabel: UILabel = {
+    var pokemonLabel: UILabel = {
         let label = UILabel()
         label.text = "Pokémon"
         label.textColor = .black
         return label
     }()
     
-    private var pokemonImage: UIImageView = {
+    var pokemonImage: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     
-    private var tagStackView: UIStackView = {
+    var tagStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
         stackView.spacing = 10
@@ -54,13 +54,13 @@ class DetailViewController: UIViewController {
         return stackView
     }()
     
-    private var heightLabel: UILabel = {
+    var heightLabel: UILabel = {
         let label = UILabel()
         label.text = "Height: 0.0m"
         return label
     }()
     
-    private var weightLabel: UILabel = {
+    var weightLabel: UILabel = {
         let label = UILabel()
         label.text = "Weight: 0.0kg"
         return label
@@ -73,7 +73,7 @@ class DetailViewController: UIViewController {
         viewModel = DetailViewModel(service: service)
         
         configureLayout()
-        getIndex()
+        viewModel.loadData(pokemonIndex: selectedIndex ?? 1)
     }
     
     func configureLayout() {
@@ -87,45 +87,6 @@ class DetailViewController: UIViewController {
         addTagsToStackView()
         addAdditionalInfosToStackView()
         constrainstLayout()
-    }
-    
-    func getIndex() {
-        viewModel.service.getPokemonDetails(index: selectedIndex ?? "1" ) { result in
-            DispatchQueue.main.async {
-                switch result {
-                case let .failure(error):
-                    print("Erro")
-                case let .success(data):
-                    self.updateUI(with: data)
-                }
-            }
-        }
-    }
-    
-    func updateUI(with pokemon: Pokemon) {
-        indexLabel.text = pokemon.formattedIndex
-        pokemonLabel.text = pokemon.name.capitalized
-        heightLabel.text = "Height: \(Double(pokemon.height) / 10.0)m"
-        weightLabel.text = "Weight: \(Double(pokemon.weight) / 10.0)kg"
-        // Image
-        if let imageUrl = pokemon.image.front_default, let url = URL(string: imageUrl) {
-            downloadImage(from: url)
-        }
-        // Types
-        tagStackView.arrangedSubviews.forEach{ $0.removeFromSuperview() }
-        for typeEntry in pokemon.types {
-            let tagLabel = createTagLabel(text: typeEntry.type.name.capitalized)
-            tagStackView.addArrangedSubview(tagLabel)
-        }
-    }
-    
-    func downloadImage(from url: URL) {
-        URLSession.shared.dataTask(with: url) { data, response, error in
-            guard let data = data, error == nil else { return }
-            DispatchQueue.main.async {
-                self.pokemonImage.image = UIImage(data: data)
-            }
-        }.resume()
     }
     
     func constrainstLayout() {
@@ -158,26 +119,9 @@ class DetailViewController: UIViewController {
     func addTagsToStackView() {
         let tags = ["Tipo"]
         for tag in tags {
-            let tagLabel = createTagLabel(text: tag)
-            tagStackView.addArrangedSubview(tagLabel)
+            let tagLabel = viewModel.createTagLabel(text: tag)
+            self.tagStackView.addArrangedSubview(tagLabel)
         }
-    }
-    
-    func createTagLabel(text: String) -> PaddingLabel {
-        let label = PaddingLabel()
-        label.text = text
-        label.textColor = .white
-        label.backgroundColor = .blue
-        label.textAlignment = .center
-        label.font = UIFont.systemFont(ofSize: 14, weight: .medium)
-        label.layer.cornerRadius = 12
-        label.layer.masksToBounds = true
-        label.translatesAutoresizingMaskIntoConstraints = false
-        
-        // Add padding
-        label.textInsets = UIEdgeInsets(top: 6, left: 12, bottom: 6, right: 12)
-        
-        return label
     }
     
     func addAdditionalInfosToStackView() {
