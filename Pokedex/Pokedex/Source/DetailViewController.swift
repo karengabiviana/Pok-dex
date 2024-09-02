@@ -12,7 +12,7 @@ import UIKit
 class DetailViewController: UIViewController {
     private var viewModel: DetailViewModel!
     
-    var selectedIndex: String?
+    var selectedIndex: Int?
     
     var indexLabel: UILabel = {
         let label = UILabel()

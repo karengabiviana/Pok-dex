@@ -8,7 +8,7 @@
 import UIKit
 
 protocol DetailServiceProtocol {
-    func getPokemonDetails(index: String, callback: @escaping (Result<Pokemon, DetailServiceError>) -> Void)
+    func getPokemonDetails(index: Int, callback: @escaping (Result<Pokemon, DetailServiceError>) -> Void)
 }
 
 enum DetailServiceError: Error {
@@ -18,7 +18,7 @@ enum DetailServiceError: Error {
 }
 
 class DetailService: DetailServiceProtocol {
-    func getPokemonDetails(index: String, callback: @escaping (Result<Pokemon, DetailServiceError>) -> Void) {
+    func getPokemonDetails(index: Int, callback: @escaping (Result<Pokemon, DetailServiceError>) -> Void) {
         let baseURL = "https://pokeapi.co/api/v2/pokemon/"
         let path = "\(index)/"
         guard let url = URL(string: baseURL + path) else {
